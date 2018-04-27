@@ -47,21 +47,27 @@ $data = $postBlog->findAll();
     </div>
 </nav>
 <div>
-    <h1><center>My Blog </center></h1>
+    <h1 class="h1"><center>My Blog </center></h1>
 
 </div>
         <form method="POST" action="../Controller/ArticlesController.php">
-            <input type="submit" value="Exporter les Articles" class="btn btn-primary flex-row-reverse">
+            <input type="submit" value="Exporter les Articles" class="btn btn-dark flex-row-reverse">
         </form>
+<hr>
 <div class="card">
     <?php
     foreach ($data as $key => $value) {
         echo "<div class=\'card-header\'>
-        <div class='d-flex justify-content-between'><h2 class='card-title col-xs'>" . $value['title'] . "</h2>
+        <div class='d-flex justify-content-between row'>
+            <h2 class='card-title col-md-9 h2 text-muted'>" . $value['title'] . "</h2>
+                
+                <p class='col-md-3'>posté par " . $value['author'] . " le " . $value['creationDate'] . "</p>
                 </div>
-                <p class='d-flex flex-row-reverse'>posté par " . $value['author'] . " le " . $value['creationDate'] . "</p>
-                <p>" . $value['smallContent'] . "</p>
-                <a  class='btn btn-info' href='../../MyBlog-2/View/PostDetail?id=" . $value['id'] . ".php'>En savoir plus</a>
+                    <div class='row'>
+                    <img src='" . $value["img"] . "'alt='#' class='col-md-3' width='75px' height='150px'>
+                        <p class='col-md-9'>" . $value['smallContent'] . "</p>
+                </div>
+                <a  class='btn btn-light d-flex flex-row-reverse' href='../../MyBlog-2/View/PostDetail?id=" . $value['id'] . ".php'>En savoir plus</a>
                 </div>
                 <br>";
         if (next($data) != null) {

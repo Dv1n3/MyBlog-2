@@ -53,20 +53,21 @@ $data = $postBlog->findById($id);
 
     <?php
         echo "<div class=\'card-header\'>
-<div class='row'>
-        <div class='d-flex justify-content-between'><h2 class='card-title col-xs'>" . $data['title'] . "</h2>
+    <div class='row'>
+            <div class='col-md-9'><h2 class='card-title'>" . $data['title'] . "</h2>
                 </div>
-                <p class='d-flex flex-row-reverse'>posté par " . $data['author'] . " le " . $data['creationDate'] . "</p>
-                </div>
-                <p>" . $data['content'] . "</p>
+                    <p class='col-md-3'>posté par " . $data['author'] . " le " . $data['creationDate'] . "</p>
+                    </div>
+                        <div class='row'>
+                        <img src='" . $data["img"] . "'alt='#' class='col-md-3' width='75px' height='150px'>
+                        <p class='col-md-9'>" . $data['content'] . "</p>
+                    </div>
                 </div>
                 <br>";
 
             echo "<hr>";
 
             echo "<br></div></div>";
-
-
     ?>
 
 
