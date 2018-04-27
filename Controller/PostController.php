@@ -5,8 +5,8 @@
  * Date: 27/04/2018
  * Time: 09:35
  */
-include 'C:\wamp64\www\MyBlog-2\class\PostBlogDAO.php';
-include 'C:\wamp64\www\MyBlog-2\class\PostBlog.php';
+include '../../MyBlog-2\class\PostBlogDAO.php';
+include '../../MyBlog-2\class\PostBlog.php';
 
 if(isset($_POST['pwd']) && $_POST['pwd'] === "root")
 {

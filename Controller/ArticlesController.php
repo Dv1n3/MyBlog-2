@@ -1,5 +1,5 @@
 <?php
-include 'C:\wamp64\www\MyBlog-2\class\PostBlogDAO.php';
+include '../../MyBlog-2\class\PostBlogDAO.php';
 
 try {
     $db = new PDO('mysql:host=localhost;dbname=blog', 'root', '');

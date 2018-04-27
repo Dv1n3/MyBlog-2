@@ -82,7 +82,6 @@ class PostBlogDAO
     public function articlesToJson(){
         $sql = "SELECT blogdb.content FROM blog.blogdb";
         $data = $this->pdo->query($sql)->fetchAll();
-        var_dump($data);
         $articles = "";
         foreach ($data as $content) {
             $articles .= json_encode($content);
