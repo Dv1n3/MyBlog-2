@@ -73,9 +73,9 @@ $form = new Form();
             </div>
         </div>
         <div class="form-group row">
-            <label for="picture" class="col-sm-2 col-form-label">Image</label>
+            <label for="image" class="col-sm-2 col-form-label">Image</label>
             <div class="col-sm-4">
-                <input type="text" name="picture" class="form-control" id="picture" placeholder="url de l'image">
+                <input type="text" name="image" class="form-control" id="image">
             </div>
         </div>
         <input type="submit" value="créer" class="btn btn-success flex-row-reverse">

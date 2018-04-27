@@ -6,6 +6,7 @@
  * Date: 25/04/2018
  * Time: 11:54
  */
+
 class PostBlogDAO
 {
     private $pdo;
@@ -45,9 +46,6 @@ class PostBlogDAO
         return $success;
     }
 
-    /**
-     * @param PostBlog $postBlog
-     */
     public function insert(PostBlog $postBlog)
     {
         $sql = "INSERT INTO blog.blogdb (author, title, content, smallContent, creationDate, img) VALUES (:author, :title, :content, :smallContent, :creationDate, :img)";
@@ -78,18 +76,23 @@ class PostBlogDAO
         ]);
     }
 
-    public function articlesToJson(){
+    public function articlesToJson()
+    {
         $sql = "SELECT blogdb.content FROM blog.blogdb";
         $data = $this->pdo->query($sql)->fetchAll();
         $articles = "";
+
         foreach ($data as $content) {
             $articles .= json_encode($content);
         }
+
         $serialize = fopen('..\/serialize.txt', 'w+');
-        echo $articles;
+
+        echo "le fichier à été créé";
+
         fputs($serialize, $articles);
         fclose($serialize);
-        if($data){
+        if ($data) {
             return true;
         }
         return false;

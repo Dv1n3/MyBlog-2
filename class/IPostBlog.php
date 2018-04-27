@@ -4,7 +4,7 @@ interface IPostBlog
 {
     public function findAll();
 
-    public function findById(PostBlog $postBlog);
+    public function findById($id);
 
     public function insert(PostBlog $postBlog);
 

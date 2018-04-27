@@ -10,14 +10,14 @@ include '../../MyBlog-2\class\PostBlog.php';
 
 if(isset($_POST['pwd']) && $_POST['pwd'] === "root")
 {
-    if (isset($_POST['author']) && isset($_POST['title']) && isset($_POST['smallContent']) && isset($_POST['content']))
+    if (isset($_POST['author']) && isset($_POST['title']) && isset($_POST['smallContent']) && isset($_POST['content']) && isset($_POST['image']))
     {
 
 
         try{
             $db = new PDO('mysql:host=localhost;dbname=blog', 'root', '');
             $postBlogManager    = new PostBlogDAO($db);
-            $postBlog           = new PostBlog($_POST['author'],$_POST['title'], $_POST['content'],  $_POST['smallContent'], '');
+            $postBlog           = new PostBlog($_POST['author'],$_POST['title'], $_POST['content'],  $_POST['smallContent'], '', $_POST['image']);
 
             $data = $postBlogManager->insert($postBlog);
             if($data)

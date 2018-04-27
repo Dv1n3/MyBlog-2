@@ -24,14 +24,14 @@ class PostBlog
      * @param $content
      * @param $creationDate
      */
-    public function __construct($author, $title, $content, $smallContent, $creationDate, $img=null)
+    public function __construct($author, $title, $content, $smallContent, $creationDate, $img)
     {
         $this->author = $author;
         $this->title = $title;
         $this->content = $content;
         $this->smallContent = $smallContent;
         $this->creationDate = $this->getCreationDate();
-        $this->img = $this->getImg();
+        $this->img = $img;
     }
 
     /**
