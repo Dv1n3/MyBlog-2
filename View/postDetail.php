@@ -1,8 +1,8 @@
 <?php
-include 'C:\wamp64\www\MyBlog-2\class\DataBase.php';
-include 'C:\wamp64\www\MyBlog-2\class\PostBlog.php';
-include 'C:\wamp64\www\MyBlog-2\class\PostBlogDAO.php';
-include 'C:\wamp64\www\MyBlog-2\class\IPostBlog.php';
+include '../../MyBlog-2\class\DataBase.php';
+include '../../MyBlog-2\class\PostBlog.php';
+include '../../MyBlog-2\class\PostBlogDAO.php';
+include '../../MyBlog-2\class\IPostBlog.php';
 
 //$db = new DataBase('$mysql', 'blog', 'localhost', 'root', '');
 //$connexion = $db->getPDO($db);
@@ -38,10 +38,10 @@ $data = $postBlog->findById($id);
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav">
             <li class="nav-item active">
-                <a class="nav-link" href="http://localhost/MyBlog-2/View/homePage.php">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="../../MyBlog-2/View/homePage.php">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="http://localhost/MyBlog-2/View/createPost.php">Create post</a>
+                <a class="nav-link" href="../../MyBlog-2/View/createPost.php">Create post</a>
             </li>
         </ul>
     </div>
