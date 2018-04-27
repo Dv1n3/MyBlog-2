@@ -50,15 +50,15 @@ class PostBlogDAO
      */
     public function insert(PostBlog $postBlog)
     {
-        $sql = "INSERT INTO blog.blogdb (author, title, content, smallContent, creationDate) VALUES (:author, :title, :content, :smallContent, :creationDate)";
+        $sql = "INSERT INTO blog.blogdb (author, title, content, smallContent, creationDate, img) VALUES (:author, :title, :content, :smallContent, :creationDate, :img)";
         $statement = $this->pdo->prepare($sql);
-        //var_dump($statement);
         $statement->execute([
             "author" => $postBlog->getAuthor(),
             "title" => $postBlog->getTitle(),
             "content" => $postBlog->getContent(),
             "smallContent" => $postBlog->getSmallContent(),
             "creationDate" => $postBlog->getCreationDate()->format("Y-m-d H:i:s"),
+            "img" => $postBlog->getImg(),
         ]);
         return $this->pdo->lastInsertId();
 
@@ -66,17 +66,16 @@ class PostBlogDAO
 
     public function update(PostBlog $postBlog)
     {
-        $sql = "UPDATE blog.blogdb SET author=?, title=?, content=?, smallContent) WHERE id=" . $postBlog->getId();
+        $sql = "UPDATE blog.blogdb SET (author=?, title=?, content=?, smallContent=?, creationDate=?, img=?) WHERE id=" . $postBlog->getId();
         $statement = $this->pdo->prepare($sql);
-        return $statement->execute(
-            [
-                $postBlog->getAuthor(),
-                $postBlog->getContent(),
-                $postBlog->getSmallContent(),
-                $postBlog->getTitle(),
-                $postBlog->getCreationDate()
-            ]
-        );
+        $statement->execute([
+            "author" => $postBlog->getAuthor(),
+            "title" => $postBlog->getTitle(),
+            "content" => $postBlog->getContent(),
+            "smallContent" => $postBlog->getSmallContent(),
+            "creationDate" => $postBlog->getCreationDate()->format("Y-m-d H:i:s"),
+            "img" => $postBlog->getImg(),
+        ]);
     }
 
     public function articlesToJson(){

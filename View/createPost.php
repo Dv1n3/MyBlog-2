@@ -72,7 +72,13 @@ $form = new Form();
                 <textarea name="content" id="content" class="form-control" cols="30" rows="10"></textarea>
             </div>
         </div>
-        <input type="submit" value="créer" class="btn btn-default flex-row-reverse">
+        <div class="form-group row">
+            <label for="picture" class="col-sm-2 col-form-label">Image</label>
+            <div class="col-sm-4">
+                <input type="text" name="picture" class="form-control" id="picture" placeholder="url de l'image">
+            </div>
+        </div>
+        <input type="submit" value="créer" class="btn btn-success flex-row-reverse">
 
     </form>
 

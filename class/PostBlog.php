@@ -14,6 +14,7 @@ class PostBlog
     protected $content;
     protected $smallContent;
     protected $creationDate;
+    protected $img;
 
     /**
      * PostBlog constructor.
@@ -23,13 +24,30 @@ class PostBlog
      * @param $content
      * @param $creationDate
      */
-    public function __construct($author, $title, $content, $smallContent, $creationDate)
+    public function __construct($author, $title, $content, $smallContent, $creationDate, $img=null)
     {
         $this->author = $author;
         $this->title = $title;
         $this->content = $content;
         $this->smallContent = $smallContent;
         $this->creationDate = $this->getCreationDate();
+        $this->img = $this->getImg();
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getImg()
+    {
+        return $this->img;
+    }
+
+    /**
+     * @param mixed $img
+     */
+    public function setImg($img)
+    {
+        $this->img = $img;
     }
 
     /**
